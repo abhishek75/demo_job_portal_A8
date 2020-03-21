@@ -1,21 +1,10 @@
 <div class="container-fluid mt-inverse-15">
   <div class="row">
     <div class="col-md-12">
-      <div *ngIf="showDialog == true">
-        <!-- Dialog Components here -->
-        <div *ngIf="dialogType == 'settings'">
-          <sfg-dashboard-settings [(toggle)]="showDialog"></sfg-dashboard-settings>
-        </div>
-      </div>
-      <div *ngIf="!showDialog">
+      <div >
         <div class="row">
           <div class="col-sm-10">
             <app-breadcrumbs></app-breadcrumbs>
-          </div>
-          <div class="col-sm-2 mt-1 text-right invisible">
-            <button class="btn btn-icon" (click)="openDialog('settings')" >
-              <i class="cursor-pointer text-gray text-xlarge fa fa-cog"></i>
-            </button>
           </div>
         </div>
         <div class="row">
