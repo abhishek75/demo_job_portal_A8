@@ -6,13 +6,13 @@ var exec = require('child_process').exec;
 
 function changeImportPaths(){
   // Replace index.html paths
-  return gulp.src(["./dist/cdc/index.html"])
+  return gulp.src(["./dist/demo/index.html"])
   .pipe(replace(/styles\./, '/static/assets/styles.'))
   .pipe(replace(/runtime\./, '/static/assets/runtime.'))
   .pipe(replace(/polyfills\./, '/static/assets/polyfills.'))
   .pipe(replace(/scripts\./, '/static/assets/scripts.'))
   .pipe(replace(/main\./, '/static/assets/main.'))
-  .pipe(gulp.dest('./dist/cdc/'))
+  .pipe(gulp.dest('./dist/demo/'))
 }
 
 function deleteBuildFolder() {
@@ -20,10 +20,10 @@ function deleteBuildFolder() {
 }
 
 function moveFilesToStatic(done) {
-  gulp.src(['./dist/cdc/*.js'])
-  .pipe(gulp.dest('./dist/cdc/static/assets/'));
-  return gulp.src(['./dist/cdc/*.css'])
-  .pipe(gulp.dest('./dist/cdc/static/assets/'))
+  gulp.src(['./dist/demo/*.js'])
+  .pipe(gulp.dest('./dist/demo/static/assets/'));
+  return gulp.src(['./dist/demo/*.css'])
+  .pipe(gulp.dest('./dist/demo/static/assets/'))
 
 }
 
@@ -40,10 +40,10 @@ function cleanDeploy(done) {
 }
 
 function moveFilesToDeploy(done) {
-  gulp.src(['./dist/cdc/index.html'])
+  gulp.src(['./dist/demo/index.html'])
   .pipe(rename('app.html'))
   .pipe(gulp.dest('../core/templates/'));
-  return gulp.src(['./dist/cdc/static/**/**'])
+  return gulp.src(['./dist/demo/static/**/**'])
    .pipe(gulp.dest('../core/static/'))
 }
 
